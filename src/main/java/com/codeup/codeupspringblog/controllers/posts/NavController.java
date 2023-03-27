@@ -1,21 +1,16 @@
-package com.codeup.codeupspringblog.controllers;
+package com.codeup.codeupspringblog.controllers.posts;
 
 import com.codeup.codeupspringblog.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 
 import java.util.ArrayList;
-
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class PostController {
+public class NavController {
     @GetMapping("/posts")
     public String postsIndex (Model model) {
         List<Post> posts = new ArrayList<>(Arrays.asList(
@@ -27,22 +22,9 @@ public class PostController {
         return "posts/index";
     }
 
-    @GetMapping("/posts/{id}")
-    public String postById (@PathVariable long id, Model model) {
-        Post post = new Post("Single Test Post", "This is a test post, it is supposed to show an individual post.");
-        model.addAttribute("post", post);
-        return "posts/show";
-    }
-
     @GetMapping("/create")
     public String showCreatePostForm () {
         return "posts/create";
-    }
-
-    @PostMapping("/create")
-    @ResponseBody
-    public String createPost () {
-        return "create a new post";
     }
 
     @GetMapping("/profile")

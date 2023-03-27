@@ -10,11 +10,9 @@
 <div class="page-wrapper">
     <nav th:replace="partials/navbar :: navbar"></nav>
     <div class="container">
-    <h1>This is the single post page</h1>
         <div th:each="post : ${posts}">
             <div th:replace="partials/post-card :: post(${post})"></div>
         </div>
-
     </div>
 
 </div>
