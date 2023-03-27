@@ -21,13 +21,13 @@ public class PostController {
 
     @GetMapping("/posts/create")
     @ResponseBody
-    public String createPostForm () {
+    public String showPostForm () {
         return "view the form for creating a post";
     }
 
     @PostMapping("/posts/create")
     @ResponseBody
-    public String postIndex () {
+    public String createPost () {
         return "create a new post";
     }
 }
