@@ -11,8 +11,8 @@
         <h2>You picked: <span th:text="${guess}"></span></h2>
         <h3>The roll was: <span th:text="${roll}"></span></h3>
 
-        <h3 th:if="${guess} == ${roll}">Correct!</h3>
-        <h3 th:if="${guess} != ${roll}">Wrong!</h3>
+        <h3 th:if="${guess == roll}">Correct!</h3>
+        <h3 th:if="${guess != roll}">Wrong!</h3>
 
     </div>
 </div>
