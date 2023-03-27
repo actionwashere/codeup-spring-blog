@@ -11,7 +11,7 @@ public class RollDiceController {
 
     @GetMapping("/roll-dice")
     public String showRollDicePage () {
-            return "roll-dice";
+            return "dice-roll/roll-dice";
     }
 
     @GetMapping("/roll-dice/{n}")
@@ -19,6 +19,6 @@ public class RollDiceController {
         int roll = ThreadLocalRandom.current().nextInt(1, 6 + 1);
         model.addAttribute("guess", n);
         model.addAttribute("roll", roll);
-        return "dice-results";
+        return "dice-roll/dice-results";
     }
 }

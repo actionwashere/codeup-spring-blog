@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <link th:replace="partials/scripts-links :: bootstrap-link">
+    <link rel="stylesheet" href="/css/posts/show.css">
+</head>
+<body>
+<div class="page-wrapper">
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <div class="container">
+    <h1>This is the single post page</h1>
+        <div th:each="post : ${posts}">
+            <div th:replace="partials/post-card :: post(${post})"></div>
+        </div>
+
+    </div>
+
+</div>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/scripts-links :: bootstrap-script"></script>
+</body>
+</html>
