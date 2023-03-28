@@ -11,8 +11,16 @@
 <div class="page-wrapper">
     <nav th:replace="partials/navbar :: navbar"></nav>
     <div class="container">
-        <h1>CREATE PAGE</h1>
-        <h2>Under Construction</h2>
+        <h1>CREATE A POST</h1>
+        <div class="column">
+            <form action="/create/post" method="post">
+                <input name="title" id="title" type="text">
+                <label for="title">Title</label>
+                <textarea name="body" id="body"></textarea>
+                <label for="body">Body</label>
+                <button type="submit"></button>
+            </form>
+        </div>
     </div>
 </div>
 <footer th:replace="partials/footer :: footer"></footer>
