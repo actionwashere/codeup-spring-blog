@@ -11,9 +11,9 @@
 <div class="page-wrapper">
     <nav th:replace="partials/navbar :: navbar"></nav>
     <div class="container">
-        <div th:each="post : ${posts}">
+
             <div th:replace="partials/post-card :: post(${post})"></div>
-        </div>
+
     </div>
 
 </div>
