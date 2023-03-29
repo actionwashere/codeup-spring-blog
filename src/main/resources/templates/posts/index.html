@@ -5,7 +5,7 @@
     <title>Posts</title>
     <link th:replace="partials/scripts-links :: bootstrap-link">
     <link rel="stylesheet" href="/css/posts/index.css">
-<!--    <link th:replace="partials/scripts-links :: layout">-->
+    <!--    <link th:replace="partials/scripts-links :: layout">-->
 </head>
 <body>
 <div class="page-wrapper">
@@ -13,13 +13,17 @@
     <nav th:replace="partials/navbar :: navbar"></nav>
 
 
-    <div class="container grow">
-        <h1>Posts</h1>
-        <div th:each="post : ${posts}">
-            <div th:replace="partials/post-card :: post(${post})"></div>
+    <div class="container grow mt-3">
+        <div class="column d-flex justify-content-center">
+            <h1>Posts</h1>
         </div>
+
+            <div class="column grow col-3" th:each="post : ${posts}">
+                <div th:replace="partials/post-card :: post(${post})"></div>
+            </div>
+
     </div>
-<footer th:replace="partials/footer :: footer"></footer>
+    <footer th:replace="partials/footer :: footer"></footer>
 </div>
 <script th:replace="partials/scripts-links :: bootstrap-script"></script>
 </body>

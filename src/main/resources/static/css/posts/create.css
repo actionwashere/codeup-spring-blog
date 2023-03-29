@@ -4,3 +4,11 @@
     flex-grow: 1;
     min-height: 100vh;
 }
+
+.create-form{
+    height: 550px;
+    width: 600px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}

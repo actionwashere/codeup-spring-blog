@@ -6,3 +6,12 @@
 .container.grow {
     flex: 1 0 0;
 }
+.column.grow {
+    flex: 1 0 0;
+}
+.post-card {
+    min-height: 270px;
+    width: 250px;
+    border: solid 3px black;
+    padding: 15px;
+}

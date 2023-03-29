@@ -38,4 +38,18 @@ public class PostController {
         return "redirect:/posts";
     }
 
+    // it is deleting by it will not redirect //
+
+    @GetMapping("/delete/{id}")
+    public String deletePostById(@PathVariable long id) {
+        Optional<Post> post = postsDao.findById(id);
+        if (post.isPresent()) {
+            Post postToDelete = post.get();
+            postsDao.delete(postToDelete);
+        }
+        return "redirect:/posts";
+    }
+
+
+
 }

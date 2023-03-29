@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <title>Create</title>
     <link th:replace="partials/scripts-links :: bootstrap-link">
-    <link rel="stylesheet" href="/css/posts/index.css">
+    <link rel="stylesheet" href="/css/posts/create.css">
     <!--    <link th:replace="partials/scripts-links :: layout">-->
 </head>
 <body>
 <div class="page-wrapper">
     <nav th:replace="partials/navbar :: navbar"></nav>
-    <div class="container">
-        <h1>CREATE A POST</h1>
-        <div class="column">
-            <form action="/create/post" method="post">
-                <input name="title" id="title" type="text">
+    <div class="container mt-5">
+        <h1 class="d-flex justify-content-center">CREATE A POST</h1>
+        <div class="column d-flex justify-content-center mt-5">
+            <form class="d-flex flex-column create-form" action="/create/post" method="post">
+                <input class="mb-2" name="title" id="title" type="text">
                 <label for="title">Title</label>
-                <textarea name="body" id="body"></textarea>
+                <br>
+                <textarea class="mb-2" name="body" id="body" rows="12"></textarea>
                 <label for="body">Body</label>
-                <button type="submit"></button>
+                <br>
+                <button type="submit">Create Post</button>
             </form>
         </div>
     </div>

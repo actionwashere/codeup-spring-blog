@@ -6,9 +6,12 @@
 </head>
 <body>
 
-<div th:fragment="post(post)" class="post">
-    <h3 th:text="${post.title}"></h3>
-    <p th:text="${post.body}"></p>
+<div th:fragment="post(post)" class="post-card mb-5 bg-body-tertiary">
+
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="${post.body}"></p>
+
+
 </div>
 </body>
 </html>
