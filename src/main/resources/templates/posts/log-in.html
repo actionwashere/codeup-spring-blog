@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log In</title>
+    <title>Create</title>
     <link th:replace="partials/scripts-links :: bootstrap-link">
-    <link rel="stylesheet" href="/css/posts/log-in.css">
+    <link rel="stylesheet" href="/css/posts/forms.css">
     <!--    <link th:replace="partials/scripts-links :: layout">-->
 </head>
 <body>
 <div class="page-wrapper">
-
     <nav th:replace="partials/navbar :: navbar"></nav>
-
-    <div class="container">
-        <h1>LOG IN PAGE</h1>
-        <h2>Under Construction</h2>
+    <div class="container mt-5">
+        <h1 class="d-flex justify-content-center">Welcome back!</h1>
+        <div class="column d-flex justify-content-center mt-5">
+            <form class="d-flex flex-column login-form" action="/login" method="get">
+                <input class="mb-2" name="username" id="username" type="text">
+                <label for="username">Username</label>
+                <br>
+                <input class="mb-2" name="password" id="password" type="text">
+                <label for="password">Password</label>
+                <br>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
     </div>
-
 </div>
 <footer th:replace="partials/footer :: footer"></footer>
 <script th:replace="partials/scripts-links :: bootstrap-script"></script>

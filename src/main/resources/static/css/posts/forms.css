@@ -1,0 +1,40 @@
+.page-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100vh;
+}
+
+.create-form{
+    height: 550px;
+    width: 600px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}
+
+.register-form{
+    height: 550px;
+    width: 600px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}
+
+.profile-form{
+    height: 100%;
+    width: 100%;
+    max-width: 1100px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}
+
+.login-form{
+    height: 100%;
+    width: 460px;
+    max-width: 1100px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}

@@ -22,7 +22,8 @@ public class User {
     @Column(length = 128, nullable = false)
     private String password;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST,
+    mappedBy = "user")
     private List<Post> posts;
 
     public User(){
@@ -34,6 +35,7 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
 
     public long getId() {
         return id;
@@ -74,4 +76,5 @@ public class User {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
 }
