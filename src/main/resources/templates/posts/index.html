@@ -31,8 +31,8 @@
         <div class="column">
             <h1 class="d-flex justify-content-center">Posts</h1>
         </div>
-        <div class="column d-flex flex-wrap justify-content-center mt-5">
-            <div class="ms-5" th:each="post : ${posts}">
+        <div class="column d-flex flex-wrap justify-content-between mt-5">
+            <div class="" th:each="post : ${posts}">
                 <div th:replace="partials/post-card :: post(${post})"></div>
             </div>
         </div>
