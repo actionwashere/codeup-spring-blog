@@ -44,4 +44,9 @@ public class NavController {
     public String showLogIn () {
         return"posts/log-in";
     }
+
+    @GetMapping("/register")
+    public String showRegisterPage(){
+        return "posts/register";
+    }
 }

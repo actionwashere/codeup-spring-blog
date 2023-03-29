@@ -12,17 +12,21 @@
 
     <nav th:replace="partials/navbar :: navbar"></nav>
 
-
     <div class="container grow mt-3">
-        <div class="column d-flex justify-content-center">
-            <h1>Posts</h1>
+
+        <div class="row">
+            <div class="column d-flex justify-content-center">
+                <h1>Posts</h1>
+            </div>
         </div>
 
-            <div class="column grow col-3" th:each="post : ${posts}">
+        <div class="row wrap justify-space-between">
+            <div th:each="post : ${posts}">
                 <div th:replace="partials/post-card :: post(${post})"></div>
             </div>
-
+        </div>
     </div>
+
     <footer th:replace="partials/footer :: footer"></footer>
 </div>
 <script th:replace="partials/scripts-links :: bootstrap-script"></script>

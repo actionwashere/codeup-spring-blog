@@ -4,3 +4,10 @@
     flex-grow: 1;
     min-height: 100vh;
 }
+.show-view{
+    height: 730px;
+    width: 810px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}

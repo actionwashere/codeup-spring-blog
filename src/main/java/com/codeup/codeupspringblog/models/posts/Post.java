@@ -20,8 +20,10 @@ public class Post {
     @Column(length = 128, nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(length = 500, nullable = false, columnDefinition = "MEDIUMTEXT")
     private String body;
+    @OneToOne
+    private User owner;
 
     public Post () {
 
