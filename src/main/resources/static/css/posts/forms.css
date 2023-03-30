@@ -38,3 +38,32 @@
     border: solid 3px black;
     background-color: #F8F9FA;
 }
+
+.edit-form{
+    height: 100%;
+    width: 460px;
+    max-width: 1100px;
+    padding:45px;
+    border: solid 3px black;
+    background-color: #F8F9FA;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #198753;
+    text-decoration: none;
+}

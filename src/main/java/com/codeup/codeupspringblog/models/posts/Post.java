@@ -24,11 +24,22 @@ public class Post {
     private String body;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user")
     private User user;
 
     public Post () {
 
+    }
+
+    public Post(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
+
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
     }
 
     public long getId() {
@@ -61,16 +72,5 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Post(String title, String body, User user) {
-        this.title = title;
-        this.body = body;
-        this.user = user;
-    }
-
-    public Post(String title, String body) {
-        this.title = title;
-        this.body = body;
     }
 }

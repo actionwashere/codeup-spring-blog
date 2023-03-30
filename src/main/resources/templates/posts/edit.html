@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+  <link th:replace="partials/scripts-links :: bootstrap-link">
+  <link rel="stylesheet" href="/css/posts/forms.css">
+  <!--    <link th:replace="partials/scripts-links :: layout">-->
+</head>
+<body>
+<div class="page-wrapper">
+  <nav th:replace="partials/navbar :: navbar"></nav>
+  <div class="container mt-5">
+    <h1 class="d-flex justify-content-center">Edit POST</h1>
+    <div class="column d-flex justify-content-center mt-5">
+      <form class="d-flex flex-column edit-form" action="/edit/{id}" method="post">
+        <input class="mb-2" name="title" id="title" type="text" th:placeholder="${post.title}">
+        <label for="title">Title</label>
+        <br>
+        <textarea class="mb-2" name="body" id="body" rows="12" th:placeholder="${post.body}"></textarea>
+        <label for="body">Body</label>
+        <br>
+        <button type="submit">Update Post</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/scripts-links :: bootstrap-script"></script>
+</body>
+</html>

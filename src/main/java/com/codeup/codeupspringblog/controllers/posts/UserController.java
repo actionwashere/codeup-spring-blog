@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -32,17 +33,22 @@ public class UserController {
 
 
     @GetMapping("/profile/{id}")
-    public String userAds(@PathVariable long id, Model model){
+    public String userPosts(@PathVariable long id, Model model){
         User user = userDao.findById(id);
-//        List<Post> userPosts = user.getPosts();
         model.addAttribute("user", user);
         return "posts/profile";
     }
 
 //    @GetMapping("/log-in")
-//    public String login(){
-//        //verify user//
-//        //store user login cookie and user id cookie //
+//    public String login(@RequestParam(name="username") String username, @RequestParam(name="password") String password){
+//       Optional<User> user = userDao.findByUsername(); //make a method, findByUsername //
+//        if(user.isPresent() && (user.password == password)){
+//            // add user attribute to cookie and input hidden id  //
+//            // send to posts //
+//            // change login to log out (needs to be done with if else in partial)//
+//            // remove registration (needs to be done with if else in partial)//
+//        }
+//
 //        return "posts/index";
 //    }
 

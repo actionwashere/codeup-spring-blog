@@ -1,6 +1,7 @@
 package com.codeup.codeupspringblog.controllers.posts;
 
 import com.codeup.codeupspringblog.models.posts.Post;
+import com.codeup.codeupspringblog.models.posts.User;
 import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,10 @@ public class PostController {
     }
 
     @PostMapping("/create/post")
-    public String createPost(@RequestParam String title, @RequestParam String body) {
-        Post post = new Post(title, body);
+    public String createPost(@RequestParam String title, @RequestParam String body, @RequestParam long user_id) {
+        User user = userDao.findById(user_id);
+        System.out.println(user);
+        Post post = new Post(title, body, user);
         postsDao.save(post);
         return "redirect:/posts";
     }
@@ -45,11 +48,12 @@ public class PostController {
         return "redirect:/posts";
     }
 
-    @PostMapping("/edit")
-    public String editPost(@PathVariable long id, @RequestParam String updatedTitle, @RequestParam String updatedBody) {
+    @PostMapping("/edit/{id}")
+    public String editPost(@PathVariable(name="id") long id, @RequestParam String updatedTitle, @RequestParam String updatedBody, Model model) {
+        Post post = postsDao.findById(id);
         Post updatedPost = new Post(updatedTitle, updatedBody);
         postsDao.save(updatedPost);
-        return "redirect:/profile/{id}";
+        return "redirect:/posts";
     }
 
 

@@ -8,7 +8,11 @@
 
 <div th:fragment="post(post)" class="post-card mb-5 bg-body-tertiary">
 
+
+    <a th:href="@{/show/{id}(id=${post.id})}">
+        <input type="hidden" name="id" th:value="${post.id}">
         <h3 th:text="${post.title}"></h3>
+    </a>
         <p th:text="${post.body}"></p>
 
 
