@@ -46,9 +46,6 @@ public class NavController {
 
     @GetMapping("/profile")
     public String showProfile () {
-//        if (USER COOKIE NOT THERE){
-//            return "redirect:/login";
-//        }
         return "posts/profile";
     }
 
