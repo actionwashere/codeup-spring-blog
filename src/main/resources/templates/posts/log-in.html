@@ -14,7 +14,7 @@
         <h1 class="d-flex justify-content-center">Welcome back!</h1>
         <div class="column d-flex justify-content-center mt-5">
             <div class="login-form">
-                <form class="d-flex flex-column" action="/login" method="get">
+                <form class="d-flex flex-column" th:action="@{/login}" method="get">
                     <input class="mb-2" name="username" id="username" type="text">
                     <label for="username">Username</label>
                     <br>
@@ -23,7 +23,7 @@
                     <br>
                     <button type="submit">Log In</button>
                 </form>
-                <form class="mt-5" action="/register" method="get">
+                <form class="mt-5" th:action="@{/register}" method="get">
                     <p>Not a user?</p>
                     <button type="submit">Register</button>
                 </form>
