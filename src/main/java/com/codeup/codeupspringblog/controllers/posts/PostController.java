@@ -33,11 +33,10 @@ public class PostController {
     }
 
     @PostMapping("/create/post")
-    public String createPost(@RequestParam String title, @RequestParam String body, @RequestParam long user_id) {
-        User user = userDao.findById(user_id);
-        System.out.println(user);
-        Post post = new Post(title, body, user);
-        postsDao.save(post);
+    public String createPost(@ModelAttribute Post post, @RequestParam long id) {
+        User user = userDao.findById(id);
+        Post newPost = new Post(post.getTitle(), post.getBody(), user);
+        postsDao.save(newPost);
         return "redirect:/posts";
     }
 
@@ -49,13 +48,11 @@ public class PostController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editPost(@PathVariable(name="id") long id, @RequestParam String updatedTitle, @RequestParam String updatedBody, Model model) {
-        Post post = postsDao.findById(id);
-        Post updatedPost = new Post(updatedTitle, updatedBody);
+    public String editPost(@PathVariable(name="id") long id, @RequestParam String title, @RequestParam String body, Model model){
+        Post thisPost = postsDao.findById(id);
+        Post updatedPost = new Post(title, body);
+        System.out.println(updatedPost);
         postsDao.save(updatedPost);
         return "redirect:/posts";
     }
-
-
-
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Edit</title>
@@ -13,15 +13,26 @@
   <div class="container mt-5">
     <h1 class="d-flex justify-content-center">Edit POST</h1>
     <div class="column d-flex justify-content-center mt-5">
-      <form class="d-flex flex-column edit-form" action="/edit/{id}" method="post">
-        <input class="mb-2" name="title" id="title" type="text" th:placeholder="${post.title}">
-        <label for="title">Title</label>
-        <br>
-        <textarea class="mb-2" name="body" id="body" rows="12" th:placeholder="${post.body}"></textarea>
-        <label for="body">Body</label>
-        <br>
-        <button type="submit">Update Post</button>
+<!--      <form class="d-flex flex-column edit-form" action="/edit/{id}" method="post">-->
+<!--        <input class="mb-2" name="title" id="title" type="text" th:placeholder="${post.title}">-->
+<!--        <label for="title">Title</label>-->
+<!--        <br>-->
+<!--        <textarea class="mb-2" name="body" id="body" rows="12" th:placeholder="${post.body}"></textarea>-->
+<!--        <label for="body">Body</label>-->
+<!--        <br>-->
+<!--        <button type="submit">Update Post</button>-->
+<!--      </form>-->
+
+      <form class="d-flex flex-column edit-form" th:action="@{/edit/{id}(id=${post.id})}" th:method="post" th:object="${post}">
+        Title:
+        <input th:field="*{title}"/>
+        <br />
+        Body:
+        <textarea rows="12" th:field="*{body}"></textarea>
+        <br />
+        <button type="submit">Edit Post</button>
       </form>
+
     </div>
   </div>
 </div>

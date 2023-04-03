@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Registration</title>
@@ -16,17 +16,17 @@
     <div class="container mt-5">
       <h1 class="d-flex justify-content-center">Register</h1>
       <div class="column d-flex justify-content-center mt-5">
-        <form class="d-flex flex-column register-form" action="/register" method="post">
-          <input class="mb-2" name="username" id="username" type="text">
-          <label for="username">Username</label>
+        <form class="d-flex flex-column register-form" th:action="@{/register}" th:method="post" th:object="${user}">
+          Username:
+          <input th:field="*{username}"/>
           <br>
-          <input class="mb-2" name="email" id="email" type="text">
-          <label for="email">Email</label>
+          Email:
+          <input th:field="*{email}"/>
           <br>
-          <input class="mb-2" name="password" id="password" type="password">
-          <label for="password">Password</label>
-          <br>
-          <button type="submit">Register</button>
+          Password:
+          <input th:field="*{password}"/>
+          <br><br>
+          <input type="submit"/>
         </form>
       </div>
     </div>

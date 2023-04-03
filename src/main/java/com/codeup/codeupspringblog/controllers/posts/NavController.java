@@ -39,10 +39,8 @@ public class NavController {
     }
 
     @GetMapping("/create")
-    public String showCreatePostForm () {
-//         if (USER COOKIE NOT THERE){
-//             return "redirect:/login";
-//         }
+    public String showCreatePostForm (Model model) {
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
@@ -60,7 +58,8 @@ public class NavController {
     }
 
     @GetMapping("/register")
-    public String showRegisterPage(){
+    public String showRegisterPage(Model model){
+        model.addAttribute("user", new User());
         return "posts/register";
     }
 
