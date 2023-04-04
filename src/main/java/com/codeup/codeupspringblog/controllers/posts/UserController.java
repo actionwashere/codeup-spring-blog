@@ -31,7 +31,7 @@ public class UserController {
         user.setPassword(hash);
         User newUser = new User(user.getUsername(), user.getEmail(), hash);
         userDao.save(newUser);
-        return "redirect:/log-in";
+        return "redirect:/login";
     }
 
 
@@ -41,10 +41,5 @@ public class UserController {
         model.addAttribute("user", user);
         return "posts/profile";
     }
-
-//    @GetMapping("/log-in")
-//    public String showLoginForm() {
-//        return "posts/log-in";
-//    }
 
 }

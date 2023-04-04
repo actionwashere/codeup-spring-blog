@@ -49,11 +49,6 @@ public class NavController {
         return "posts/profile";
     }
 
-    @GetMapping("/log-in")
-    public String showLogIn () {
-        return"posts/log-in";
-    }
-
     @GetMapping("/register")
     public String showRegisterPage(Model model){
         model.addAttribute("user", new User());
