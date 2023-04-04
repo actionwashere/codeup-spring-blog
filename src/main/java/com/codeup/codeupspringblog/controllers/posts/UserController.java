@@ -4,6 +4,7 @@ import com.codeup.codeupspringblog.models.posts.Post;
 import com.codeup.codeupspringblog.models.posts.User;
 import com.codeup.codeupspringblog.repositories.PostRepository;
 import com.codeup.codeupspringblog.repositories.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,19 @@ public class UserController {
 
     private final UserRepository userDao;
 
-    public UserController(UserRepository userDao) {
+    private PasswordEncoder passwordEncoder;
+
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user){
-        User newUser = new User(user.getUsername(), user.getEmail(), user.getPassword());
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        User newUser = new User(user.getUsername(), user.getEmail(), hash);
         userDao.save(newUser);
         return "redirect:/log-in";
     }
@@ -37,16 +43,8 @@ public class UserController {
     }
 
 //    @GetMapping("/log-in")
-//    public String login(@RequestParam(name="username") String username, @RequestParam(name="password") String password){
-//       Optional<User> user = userDao.findByUsername(); //make a method, findByUsername //
-//        if(user.isPresent() && (user.password == password)){
-//            // add user attribute to cookie and input hidden id  //
-//            // send to posts //
-//            // change login to log out (needs to be done with if else in partial)//
-//            // remove registration (needs to be done with if else in partial)//
-//        }
-//
-//        return "posts/index";
+//    public String showLoginForm() {
+//        return "posts/log-in";
 //    }
 
 }
