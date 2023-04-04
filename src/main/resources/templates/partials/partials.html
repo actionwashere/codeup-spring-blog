@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <title>Partials</title>
@@ -27,11 +28,16 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/posts">Posts</a></li>
-              <li><a class="dropdown-item" href="/profile/1">Profile</a></li>
-              <li><a class="dropdown-item" href="/create">Create</a></li>
+              <li sec:authorize="isAuthenticated()"><a class="dropdown-item" th:href="@{/profile/1}">Profile</a></li>
+              <li sec:authorize="isAuthenticated()"><a class="dropdown-item" th:href="@{/create}">Create</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/login">Log In</a></li>
-              <li><a class="dropdown-item" href="/register">Register</a></li>
+              <li sec:authorize="!isAuthenticated()"><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+              <li sec:authorize="!isAuthenticated()"><a class="dropdown-item" th:href="@{/register}">Register</a></li>
+              <li sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" th:method="post">
+                  <button class="ms-3">Logout</button>
+                </form>
+              </li>
             </ul>
           </li>
         </ul>
@@ -57,10 +63,11 @@
     <div class="footer-info col-4">
       <h3 class="d-flex justify-content-center">Navigation</h3>
       <ul class="list-group d-flex align-items-center">
-        <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" href="/posts">Posts</a></li>
-        <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" href="/profile/1">Profile</a></li>
-        <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" href="/login">Log In</a></li>
-        <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" href="/register">Register</a></li>
+        <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/posts}">Posts</a></li>
+        <li sec:authorize="isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/profile/1}">Profile</a></li>
+        <li sec:authorize="!isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/login}">Login</a></li>
+        <li sec:authorize="!isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/register}">Register</a></li>
+        <li sec:authorize="isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/logout}">Logout</a></li>
       </ul>
     </div>
     <div class="footer-info col-4">
