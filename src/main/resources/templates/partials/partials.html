@@ -28,7 +28,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/posts">Posts</a></li>
-              <li sec:authorize="isAuthenticated()"><a class="dropdown-item" th:href="@{/profile/1}">Profile</a></li>
+              <li sec:authorize="isAuthenticated()"><a class="dropdown-item" th:href="@{/profile}">Profile</a></li>
               <li sec:authorize="isAuthenticated()"><a class="dropdown-item" th:href="@{/create}">Create</a></li>
               <li><hr class="dropdown-divider"></li>
               <li sec:authorize="!isAuthenticated()"><a class="dropdown-item" th:href="@{/login}">Login</a></li>
@@ -41,10 +41,10 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+<!--        <form class="d-flex" role="search">-->
+<!--          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--          <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--        </form>-->
       </div>
     </section>
   </div>
@@ -64,7 +64,7 @@
       <h3 class="d-flex justify-content-center">Navigation</h3>
       <ul class="list-group d-flex align-items-center">
         <li class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/posts}">Posts</a></li>
-        <li sec:authorize="isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/profile/1}">Profile</a></li>
+        <li sec:authorize="isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/profile}">Profile</a></li>
         <li sec:authorize="!isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/login}">Login</a></li>
         <li sec:authorize="!isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/register}">Register</a></li>
         <li sec:authorize="isAuthenticated()" class="list-unstyled d-flex justify-content-center"><a class="dropdown-item color" th:href="@{/logout}">Logout</a></li>
