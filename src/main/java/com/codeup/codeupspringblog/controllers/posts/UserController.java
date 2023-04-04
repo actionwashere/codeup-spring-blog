@@ -35,11 +35,11 @@ public class UserController {
     }
 
 
-    @GetMapping("/profile/{id}")
-    public String userPosts(@PathVariable long id, Model model){
-        User user = userDao.findById(id);
-        model.addAttribute("user", user);
-        return "posts/profile";
-    }
+//    @GetMapping("/profile/{id}")
+//    public String userPosts(@PathVariable long id, Model model){
+//        User user = userDao.findById(id);
+//        model.addAttribute("user", user);
+//        return "posts/profile";
+//    }
 
 }
