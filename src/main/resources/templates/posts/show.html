@@ -1,56 +1,58 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Show</title>-->
+<!--    <link th:replace="partials/partials :: bootstrap-link">-->
+<!--    <link rel="stylesheet" href="css/show.css">-->
+<!--    &lt;!&ndash;    <link th:replace="partials/scripts-links :: layout">&ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="page-wrapper">-->
+<!--    <nav th:replace="partials/partials :: navbar"></nav>-->
+<!--    <div class="container view mt-5 d-flex flex-column" id="post">-->
+<!--        <div class="row mt-1">-->
+<!--            <h1 class="d-flex justify-content-center" th:text="${post.getTitle()}"></h1>-->
+<!--        </div>-->
+<!--        <div class="row mt-5 p-5">-->
+<!--            <p th:text="${post.getBody()}"></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<footer th:replace="partials/partials :: footer"></footer>-->
+<!--<script th:replace="partials/partials :: bootstrap-script"></script>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Show</title>
     <link th:replace="partials/partials :: bootstrap-link">
-    <link rel="stylesheet" href="css/show.css">
+    <link rel="stylesheet" href="/css/forms.css">
     <!--    <link th:replace="partials/scripts-links :: layout">-->
 </head>
 <body>
 <div class="page-wrapper">
     <nav th:replace="partials/partials :: navbar"></nav>
-    <div class="container view mt-5 d-flex flex-column" id="post">
-        <div class="row mt-1">
+    <div class="container mt-5">
+        <div class="column">
             <h1 class="d-flex justify-content-center" th:text="${post.getTitle()}"></h1>
         </div>
-        <div class="row mt-5 p-5">
-            <p th:text="${post.getBody()}"></p>
+        <div class="column d-flex justify-content-center mt-5">
+            <section class="d-flex flex-column profile-form">
+                <div th:text="${post.getBody()}"></div>
+            </section>
+            <br>
+        </div>
+        <div class="column d-flex justify-content-center mt-2">
+            Author's email: <Span th:text="${post.getUser().getEmail()}"></Span>
         </div>
     </div>
 </div>
 <footer th:replace="partials/partials :: footer"></footer>
 <script th:replace="partials/partials :: bootstrap-script"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org" lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Posts</title>-->
-<!--    <link th:replace="partials/partials :: bootstrap-link">-->
-<!--    <link rel="stylesheet" href="css/forms.css">-->
-<!--    &lt;!&ndash;    <link th:replace="partials/scripts-links :: layout">&ndash;&gt;-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="page-wrapper">-->
-
-<!--    <nav th:replace="partials/partials :: navbar"></nav>-->
-
-<!--    <div class="container mt-5">-->
-<!--        <div class="column">-->
-<!--            <h1 class="d-flex justify-content-center">Posts</h1>-->
-<!--        </div>-->
-<!--        <div class="column d-flex flex-wrap justify-content-around mt-5">-->
-<!--            <div class="" th:each="post : ${posts}">-->
-<!--                <div th:replace="partials/post-card :: post(${post})"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <footer th:replace="partials/partials :: footer"></footer>-->
-<!--</div>-->
-<!--<script th:replace="partials/partials :: bootstrap-script"></script>-->
-<!--</body>-->
-<!--</html>-->

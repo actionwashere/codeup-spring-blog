@@ -48,6 +48,7 @@ public class PostController {
 
     @GetMapping("/delete")
     public String deletePostById(@RequestParam(name="id") long id) {
+
         Post post = postsDao.findById(id);
         postsDao.delete(post);
         emailService.prepareAndSendDelete(post);
