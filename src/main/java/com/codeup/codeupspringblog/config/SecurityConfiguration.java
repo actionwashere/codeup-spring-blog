@@ -53,7 +53,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/create", // only authenticated users can create posts
-                        "/edit/{id}" // only authenticated users can view profile
+                        "/edit/{id}", // only authenticated users can view profile
+                        "/delete"
 
                 )
                 .authenticated()
